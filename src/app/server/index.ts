@@ -7,6 +7,7 @@ import ILogger from '@shared/domain/ILogger';
 import container from '@app/dependencyInjection/shared';
 import { registerRoutes } from '@app/routes';
 import { RoutesErrorHandler } from './routesErrorHandler';
+import 'reflect-metadata';
 
 export class Server {
   private readonly port: number;
@@ -26,6 +27,7 @@ export class Server {
     registerRoutes(router);
     this.app.use(router, ErrorHandler);
     this.app.use(router, RoutesErrorHandler);
+    this.databases();
   }
 
   start = async (): Promise<void> => {
@@ -36,5 +38,17 @@ export class Server {
         resolve();
       });
     });
+  };
+
+  databases = async (): Promise<void> => {
+    this.logger.info('Initializing databases...');
+    const mongoClient = container.get('DataSource.Mongo.Client');
+
+    await mongoClient
+      .initialize()
+      .then(() => {
+        this.logger.info('Database mongodb initialized');
+      })
+      .catch((error: any) => this.logger.error(error));
   };
 }

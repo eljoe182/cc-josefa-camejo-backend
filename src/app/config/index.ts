@@ -9,4 +9,9 @@ export default {
   PORT: env('PORT', '3000'),
   LOCALE: env('LOCALE', 'es-CL'),
   TIME_ZONE: env('TIME_ZONE', 'America/Santiago'),
+  DATABASES: {
+    MONGO: {
+      HOST: env('MONGO_HOST', 'mongodb://localhost:27017/db'),
+    }
+  }
 };
