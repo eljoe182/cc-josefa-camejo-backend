@@ -45,6 +45,7 @@ export default class BagsRepository implements IBagsRepository {
   async update(id: string, bags: Bag): Promise<unknown> {
     const orm = await this.orm.initialize();
     const repository = orm.manager.getMongoRepository(Bag);
+    bags.updatedAt = new Date();
     const data = await repository.update(id, bags);
     await orm.destroy();
     return {

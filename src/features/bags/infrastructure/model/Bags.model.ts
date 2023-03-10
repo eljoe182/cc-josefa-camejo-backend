@@ -1,4 +1,4 @@
-import { BaseEntity, Column, Entity, ObjectID, ObjectIdColumn } from 'typeorm';
+import { BaseEntity, Column, CreateDateColumn, Entity, ObjectID, ObjectIdColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity('bags')
 export class Bag extends BaseEntity {
@@ -25,17 +25,19 @@ export class Bag extends BaseEntity {
   })
   price!: number;
 
-  @Column({
+  @CreateDateColumn({
     name: 'createdAt',
-    type: 'date',
-    default: Date.now(),
+    insert: true,
+    update: false,
+    default: () => new Date(),
   })
   createdAt!: Date;
 
-  @Column({
+  @UpdateDateColumn({
     name: 'updatedAt',
-    type: 'date',
-    default: Date.now(),
+    insert: true,
+    update: true,
+    default: () => new Date(),
   })
   updatedAt!: Date;
 }
