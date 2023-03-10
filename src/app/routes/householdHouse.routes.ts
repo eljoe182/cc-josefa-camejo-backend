@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction, Router } from 'express';
 import { IBaseController } from '@shared/domain/BaseController';
-import { HouseholdHeadDependency as container } from '../dependencyInjection/families';
+import { HouseholdHeadDependency as container } from '../dependencyInjection/householdHead';
 
 export const register = (router: Router) => {
   const getAllController: IBaseController = container.get('HouseholdHead.Controller.GetAll');
