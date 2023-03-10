@@ -5,6 +5,6 @@ export default class FindBagUseCase implements IBaseUseCase {
   constructor(private repository: IBagsRepository) {}
 
   execute(id: string): Promise<unknown> {
-    return this.repository.find(id);
+    return this.repository.findById(id);
   }
 }

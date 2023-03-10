@@ -6,6 +6,6 @@ export default class GetAllBagsUseCase implements IBaseUseCase {
   constructor(private repository: IBagsRepository) {}
 
   execute(params?: IBasePagination): Promise<unknown> {
-    return this.repository.findAll(params);
+    return this.repository.getAll(params);
   }
 }

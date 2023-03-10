@@ -1,11 +1,11 @@
 import { DataSource } from 'typeorm';
 import { IBagsRepository } from '../interfaces/IBagsRepository';
-import { Bag } from '../model/Bags.model';
+import { Bag } from '../entities/Bags.entity';
 
 export default class BagsRepository implements IBagsRepository {
   constructor(private orm: DataSource) {}
 
-  async findAll(): Promise<unknown> {
+  async getAll(): Promise<unknown> {
     const orm = await this.orm.initialize();
     const repository = orm.manager.getMongoRepository(Bag);
     const [rows, rowsCount] = await repository.findAndCount();
@@ -31,7 +31,7 @@ export default class BagsRepository implements IBagsRepository {
     };
   }
 
-  async find(id: string): Promise<unknown> {
+  async findById(id: string): Promise<unknown> {
     const orm = await this.orm.initialize();
     const repository = orm.manager.getMongoRepository(Bag);
     const result = await repository.findOneById(id);

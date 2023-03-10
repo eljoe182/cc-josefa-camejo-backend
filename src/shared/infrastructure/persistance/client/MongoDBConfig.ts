@@ -1,6 +1,6 @@
 import config from '@app/config';
 import { DataSourceOptions } from 'typeorm';
-import { Bag } from '../entities/EntitiesRegistry';
+import { Bag, Sector } from '../entities/EntitiesRegistry';
 
 export class MongoDBConfig {
   public config: DataSourceOptions;
@@ -14,7 +14,7 @@ export class MongoDBConfig {
       useUnifiedTopology: true,
       logging: true,
       ssl: false,
-      entities: [Bag],
+      entities: [Bag, Sector],
     };
   }
 

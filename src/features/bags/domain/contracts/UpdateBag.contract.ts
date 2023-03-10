@@ -1,4 +1,4 @@
-import { Bag } from '@feat/bags/infrastructure/model/Bags.model';
+import { Bag } from '@feat/bags/infrastructure/entities/Bags.entity';
 
 export interface UpdateBagContract {
   id: string;
