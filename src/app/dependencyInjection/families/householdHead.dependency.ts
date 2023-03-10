@@ -1,11 +1,11 @@
 import { Reference } from 'node-dependency-injection';
 import container from '@shared/infrastructure/dependency';
 
-import CreateHouseholdHeadUseCase from '@feat/families/application/CreateHouseholdHead.useCase';
-import GetAllHouseholdHeadUseCase from '@feat/families/application/GetAllHouseholdHead.useCase';
-import FindHouseholdHeadUseCase from '@feat/families/application/FindHouseholdHead.useCase';
-import UpdateHouseholdHeadUseCase from '@feat/families/application/UpdateHouseholdHead.useCase';
-import DeleteHouseholdHeadUseCase from '@feat/families/application/DeleteHouseholdHead.useCase';
+import CreateHouseholdHeadUseCase from '@feat/householdHeader/application/CreateHouseholdHead.useCase';
+import GetAllHouseholdHeadUseCase from '@feat/householdHeader/application/GetAllHouseholdHead.useCase';
+import FindHouseholdHeadUseCase from '@feat/householdHeader/application/FindHouseholdHead.useCase';
+import UpdateHouseholdHeadUseCase from '@feat/householdHeader/application/UpdateHouseholdHead.useCase';
+import DeleteHouseholdHeadUseCase from '@feat/householdHeader/application/DeleteHouseholdHead.useCase';
 import CreateHouseholdHeadController from '@app/controllers/families/CreateHouseholdHead.controller';
 import GetAllHouseholdHeadController from '@app/controllers/families/GetAllHouseholdHead.controller';
 import FindHouseholdHeadController from '@app/controllers/families/FindHouseholdHead.controller';
