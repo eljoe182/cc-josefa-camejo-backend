@@ -6,8 +6,8 @@ export default class DeleteSectorController implements IBaseController {
   constructor(private useCase: IBaseUseCase) {}
 
   async run(req: Request, res: Response, _next: NextFunction): Promise<void> {
-    const id = req.params.id;
-    const result = await this.useCase.execute(id);
-    res.status(200).json(result);
+    const { params } = req;
+    const data = await this.useCase.execute(params.id);
+    res.status(200).json(data);
   }
 }

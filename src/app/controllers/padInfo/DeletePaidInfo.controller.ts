@@ -6,8 +6,8 @@ export default class DeletePaidInfoController implements IBaseController {
   constructor(private useCase: IBaseUseCase) {}
 
   async run(req: Request, res: Response, _next: NextFunction): Promise<void> {
-    const { body } = req;
-    const result = await this.useCase.execute(body);
-    res.status(201).json(result);
+    const { params } = req;
+    const data = await this.useCase.execute(params.id);
+    res.status(200).json(data);
   }
 }
