@@ -34,6 +34,13 @@ export class PaidInfo extends BaseEntity {
     nullable: false,
   })
   bankId!: string;
+  
+  @Column({
+    name: 'bankName',
+    type: 'string',
+    nullable: false,
+  })
+  bankName!: string;
 
   @Column({
     name: 'accountNumber',
