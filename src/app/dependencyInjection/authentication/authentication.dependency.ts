@@ -7,6 +7,9 @@ import SignInController from '@app/controllers/authentication/SignIn.controller'
 import SignUpUseCase from '@feat/authentication/application/signUp.useCase';
 import SignUpController from '@app/controllers/authentication/SignUp.controllers';
 import TokenUseCase from '@feat/authentication/application/token.useCase';
+import AuthenticationMiddleware from '@app/middleware/authentication.middleware';
+
+container.register('Authentication.Middleware', AuthenticationMiddleware);
 
 container.register('Token.UseCase', TokenUseCase);
 

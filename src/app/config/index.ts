@@ -15,4 +15,5 @@ export default {
     },
   },
   SECRET_KEY: env('SECRET', 'secret'),
+  TOKEN_EXPIRES_IN: env('EXPIRES_IN', '1d'),
 };
