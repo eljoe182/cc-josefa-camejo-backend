@@ -6,8 +6,14 @@ import SignInController from '@app/controllers/authentication/SignIn.controller'
 
 import SignUpUseCase from '@feat/authentication/application/signUp.useCase';
 import SignUpController from '@app/controllers/authentication/SignUp.controllers';
+import TokenUseCase from '@feat/authentication/application/token.useCase';
 
-container.register('Login.UseCase.SignIn', SignInUseCase).addArgument(new Reference('Login.Repository'));
+container.register('Token.UseCase', TokenUseCase);
+
+container
+  .register('Login.UseCase.SignIn', SignInUseCase)
+  .addArgument(new Reference('Login.Repository'))
+  .addArgument(new Reference('Token.UseCase'));
 container.register('Login.Controller.SignIn', SignInController).addArgument(new Reference('Login.UseCase.SignIn'));
 
 container.register('Login.UseCase.SignUp', SignUpUseCase).addArgument(new Reference('Login.Repository'));

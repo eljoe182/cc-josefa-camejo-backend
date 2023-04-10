@@ -1,4 +1,4 @@
-export interface RepositoryResult {
+export interface RepositoryResult<T = unknown> {
   message: string;
-  data: unknown;
+  data: T | null;
 }

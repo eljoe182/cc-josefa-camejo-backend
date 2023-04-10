@@ -7,7 +7,7 @@ import { RepositoryResult } from '@shared/contracts/RepositoryResult';
 export default class LoginRepository implements ILoginRepository {
   constructor(private orm: DataSource) {}
 
-  async signIn(user: LoginRequest): Promise<RepositoryResult> {
+  async signIn(user: LoginRequest): Promise<RepositoryResult<User>> {
     const orm = await this.orm.initialize();
     const repository = orm.manager.getMongoRepository(User);
     const result = await repository.findOne({
@@ -22,7 +22,7 @@ export default class LoginRepository implements ILoginRepository {
     };
   }
 
-  async signUp(user: LoginRequest): Promise<RepositoryResult> {
+  async signUp(user: LoginRequest): Promise<RepositoryResult<User>> {
     const orm = await this.orm.initialize();
     const repository = orm.manager.getMongoRepository(User);
     const result = await repository.create(user);

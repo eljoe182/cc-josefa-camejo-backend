@@ -12,6 +12,7 @@ export default {
   DATABASES: {
     MONGO: {
       HOST: env('MONGO_HOST', 'mongodb://localhost:27017/db'),
-    }
-  }
+    },
+  },
+  SECRET_KEY: env('SECRET', 'secret'),
 };
